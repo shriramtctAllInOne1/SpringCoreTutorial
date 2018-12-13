@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- <bean id="cinjection" class="com.spring.ioc.injection.ConstructorInjection" >
+		<constructor-arg index="0" type="java.lang.String" value="ram" />
+		<constructor-arg index="1" type="java.lang.String" value="India"/>		
+	</bean> -->
+	
+	<bean id="sinjection" class="com.spring.ioc.injection.ConstructorInjection" >
+		<property name="name" value="ram"></property>
+		<property name="address" value="bhopal"></property>
+	</bean>
+
+</beans>

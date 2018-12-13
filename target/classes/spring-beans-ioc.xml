@@ -1,0 +1,14 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	    xmlns:context="http://www.springframework.org/schema/context"
+	    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	    xsi:schemaLocation="
+	 http://www.springframework.org/schema/beans
+	 http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	 http://www.springframework.org/schema/context
+	 http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+	 <context:component-scan base-package="javabeat.net.core.ioc"/>
+	    <bean id="springServiceStaticFactory" class="javabeat.net.core.ioc.SpringService" factory-method="createService"/>
+	    <bean id="springServiceCarInstance" factory-bean="springServiceStaticFactory" factory-method="createCarInstance"/>
+	    <bean id="springServiceBusInstance" factory-bean="springServiceStaticFactory" factory-method="createBusInstance"/>
+	</beans>
+ 

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	
+
+	<bean name="customEditorConfigurer"
+		class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="customEditors">
+			<map>
+				<entry key="com.core.spring.propertyeditor.UserType">
+					<bean id="UserTypeEditor" class="com.core.spring.propertyeditor.UserTypeEditor">
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="reg" class="com.core.spring.propertyeditor.Registration">
+		<property name="user" ref="user" />
+		<property name="userType" ref="userType" />
+	</bean>
+	<bean id="user" class="com.core.spring.propertyeditor.User">
+		<property name="id" value="1" />
+		<property name="fname" value="Prajith" />
+		<property name="userType" value="1" />
+	</bean>
+	<bean id="userType" class="com.core.spring.propertyeditor.UserType">
+		<property name="user_type_id" value="1" />
+		<property name="user_Type" value="Admin" />
+	</bean>
+
+</beans>

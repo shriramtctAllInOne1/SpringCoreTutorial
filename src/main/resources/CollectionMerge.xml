@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="parentPorps" class="com.spring.ioc.collections.BeanwithCollection" abstract="true">
+		<property name="props">
+			<props>
+				<prop key="key1">1000</prop>
+				<prop key="key2">2000</prop>
+				<prop key="key3">3000</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="childProps" class="com.spring.ioc.collections.BeanwithCollection" parent="parentPorps">
+		<property name="props">
+			<props merge="true">
+				<prop key="key11">5000</prop>
+				<prop key="key22">6000</prop>
+				<prop key="key3">7000</prop>
+			</props>
+		</property>
+	</bean>
+
+	
+	
+</beans>
+
+

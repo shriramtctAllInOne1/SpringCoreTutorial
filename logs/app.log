@@ -1,0 +1,3 @@
+2014-12-22 00:03:01,037 INFO  ClassPathXmlApplicationContext:510 Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1e0be38: startup date [Mon Dec 22 00:03:01 IST 2014]; root of context hierarchy 
+2014-12-22 00:03:01,116 INFO  XmlBeanDefinitionReader:315 Loading XML bean definitions from class path resource [AOP_DeclareParents_Ex.xml] 
+2014-12-22 00:03:01,515 INFO  DefaultListableBeanFactory:596 Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@b9b538: defining beans [student,studentAdditionalDetails,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.aop.aspectj.DeclareParentsAdvisor#0]; root of factory hierarchy 

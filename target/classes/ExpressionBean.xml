@@ -1,0 +1,16 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+ 
+	<bean id="itemBean" class="com.spring.expression.Item">
+		<property name="itemName" value="itemA" />
+		<property name="qty" value="10" />
+	</bean>
+ 
+	<bean id="customerBean" class="com.spring.expression.Customer">
+		<property name="item" value="#{itemBean}" />
+		<property name="itemName" value="#{itemBean.itemName}" />
+	</bean>
+ 
+</beans>

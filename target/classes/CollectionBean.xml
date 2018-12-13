@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="collectionsid" class="com.spring.ioc.collections.BeanwithCollection">
+		<property name="list">
+			<list>
+				<value>1</value>
+				<ref bean="employee1" />
+			</list>
+		</property>
+		<property name="set">
+			<set>
+				<value>1</value>
+				<ref bean="employee"></ref>
+			</set>
+		</property>
+		<property name="map">
+			<map>
+				<entry key="1" value="value1" />
+				<entry key="2" value-ref="employee" />
+			</map>
+		</property>
+		<property name="props">
+			<props>
+				<prop key="key1">1000</prop>
+				<prop key="key2">2000</prop>
+				<prop key="key3">3000</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- <bean id="employee" class="com.spring.ioc.collections.Employee">
+		<property name="name" value="ram" />
+		<property name="address" value="bhopal" />
+	</bean> -->
+	<bean id="employee" class="com.spring.ioc.collections.Employee">
+		<constructor-arg value="ram" />
+		<constructor-arg  value="bhopal" />
+		<constructor-arg value="2"/>
+	</bean>
+	
+	<bean id="employee1" class="com.spring.ioc.collections.Employee">
+		<constructor-arg value="ram" />
+		<constructor-arg  type="int" value="2" />
+	</bean>
+	
+</beans>
+
+

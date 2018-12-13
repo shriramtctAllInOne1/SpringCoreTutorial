@@ -1,0 +1,7 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="customerService" class="com.spring.bean.scope.Customer" />
+	<bean id="customerService1" class="com.spring.bean.scope.Customer" scope="prototype"/>
+</beans>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//LOGGER" "log4j.dtd">
+ 
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %-5p %c{1}:%L %m %n" />
+<!--
+ConversionPattern format specification
+%d      inserts the date; you can specify the format (%d{yyyy-MM-dd HH:mm:ss,SSS})
+%-5p    inserts the priority log level, 5 characters, left justified
+%c{1}   inserts the name of the class
+%L      inserts the line number
+%m      inserts the user message
+%n      inserts the separator (for example, a new line)
+-->
+        </layout>
+    </appender>
+ 
+    <appender name="fileAppender" class="org.apache.log4j.RollingFileAppender">
+        <param name="append" value="false" />
+        <param name="Threshold" value="DEBUG" />
+        <param name="File" value="logs/app.log"/>
+        <param name="MaxFileSize" value="512KB" />
+        <param name="MaxBackupIndex" value="10" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %-5p %c{1}:%L %m %n" />
+        </layout>
+    </appender>
+ 
+<!--sets the priority log level for org.springframework-->
+    <logger name="org.springframework">
+        <level value="info"/>
+    </logger>
+ 
+<!--sets the priority log level for eu.lucazanini-->
+    <logger name= "eu.lucazanini">
+        <level value="debug"/>
+    </logger>
+ 
+<!--sets the default priority log level-->
+    <root>
+        <priority value="debug"></priority>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="fileAppender"/>
+    </root>
+</log4j:configuration>

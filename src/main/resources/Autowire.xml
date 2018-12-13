@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <!-- By name auto wiring -->
+	<!--  <bean id="acc" class="com.spring.ioc.autowire.Account">
+		<property name="accNo" value="1"></property>
+		<property name="accHolder" value="ram"></property>
+	</bean>  -->
+	 <!-- By type auto wiring -->
+	<bean id="acc1" class="com.spring.ioc.autowire.Account">
+		<property name="accNo" value="1"></property>
+		<property name="accHolder" value="ram"></property>
+	</bean>
+
+	<bean id="txn" autowire="byName" class="com.spring.ioc.autowire.Transaction"></bean>
+	<bean id="txn1" autowire="byType" class="com.spring.ioc.autowire.Transaction"></bean>
+	<bean id="txn2" autowire="constructor" class="com.spring.ioc.autowire.Transaction"></bean>
+</beans>
+

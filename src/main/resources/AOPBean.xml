@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="customerService" class="com.spring.aop.advice.CustomerService">
+		<property name="name" value="shriram"></property>
+		<property name="url" value="http://localhost.com"></property>
+	</bean>
+
+	<!--  Configuration for BeforeAdvice -->
+	<bean id="beforeAdviceEx" class="com.spring.aop.advice.BeforeAdviceEx">
+	</bean>
+	<bean id="afterAdviceEx" class="com.spring.aop.advice.AfterAdviceEx">
+	</bean>
+
+	<bean id="beforeadviceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="customerService"></property>
+		<property name="InterceptorNames">
+			<list>
+				<value>beforeAdviceEx</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!--  Configuration for AfterReturning -->
+	<bean id="afterReturningAdviceEx" class="com.spring.aop.advice.AfterReturningAdviceEx"></bean>
+
+	<bean id="afteradviceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="customerService"></property>
+		<property name="InterceptorNames">
+			<list>
+				<value>afterReturningAdviceEx</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!--  Configuration for ThrowAdvice -->
+	<bean id="throwAdviceEx" class="com.spring.aop.advice.ThrowAdviceEx"></bean>
+
+	<bean id="throwAdviceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="customerService"></property>
+		<property name="InterceptorNames">
+			<list>
+				<value>throwAdviceEx</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<!--  Configuration for AroundAdvice -->
+	<bean id="aroundAdviceEx" class="com.spring.aop.advice.AroundAdviceEx"></bean>
+
+	<bean id="aroundAdviceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="customerService"></property>
+		<property name="InterceptorNames">
+			<list>
+				<value>aroundAdviceEx</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+</beans>

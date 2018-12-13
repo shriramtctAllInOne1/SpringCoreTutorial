@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<bean id="listableBean" class="com.spring.listablebeanfactory.Customer">
+		<property name="nameList">
+			<bean class="org.springframework.beans.factory.config.ListFactoryBean">
+				<property name="targetListClass">
+					<value>java.util.ArrayList</value>
+				</property>
+				<property name="sourceList">
+					<list>
+						<value>1</value>
+						<value>2</value>
+					</list>
+				</property>
+			</bean>
+		</property>
+
+	</bean>
+	
+	<bean id="setableBean" class="com.spring.listablebeanfactory.Customer">
+		<property name="nameSet">
+			<bean class="org.springframework.beans.factory.config.SetFactoryBean">
+				<property name="targetSetClass">
+					<value>java.util.HashSet</value>
+				</property>
+				<property name="sourceSet">
+					<set>
+						<value>11</value>
+						<value>22</value>
+					</set>
+				</property>
+			</bean>
+		</property>
+
+	</bean>
+	
+	<!-- <bean id="mapBean" class="com.spring.listablebeanfactory.Customer">
+		<property name="nameMap">
+			<bean class="org.springframework.beans.factory.config.MapFactoryBean">
+				<property name="targetMapClass">
+					<value>java.util.HashMap</value>
+				</property>
+				<property name="sourceMap">
+					<map>
+						<entry key="key1" value="14"/>
+						<entry key="key2" value="15"/>
+					</map>
+				</property>
+			</bean>
+		</property>
+	</bean> -->
+	
+	<bean id="mapBean" class="com.spring.listablebeanfactory.Customer">
+		<property name="nameMap">			
+			<util:map map-class="java.util.HashMap">
+				<entry key="Key1" value="1" />
+				<entry key="Key2" value="2" />
+				<entry key="Key3" value="3" />
+			</util:map>
+			
+		</property>
+
+	</bean>
+	
+	<bean id="mapstandaloneBean" class="com.spring.listablebeanfactory.Customer">
+		<property name="nameMap">			
+			<ref local="HashMapbean"></ref>
+			
+		</property>
+	</bean>
+	<util:map id="HashMapbean">
+				<entry key="Key1" value="1" />
+				<entry key="Key2" value="2" />
+				<entry key="Key3" value="3" />
+			</util:map>
+	
+</beans>
